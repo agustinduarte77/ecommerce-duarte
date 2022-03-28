@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import ListProducts from './components/ListProducts/ListProducts';
+import ListProducts from './components/ListProducts/ItemList';
 
 
 

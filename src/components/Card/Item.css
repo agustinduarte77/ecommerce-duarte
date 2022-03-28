@@ -1,0 +1,7 @@
+.card-item{
+    border: 1px rgb(88, 88, 88) solid;
+    border-radius: 5px;
+    background-color: rgb(228, 228, 228);
+    width: 20%;
+    margin: 5px;
+}

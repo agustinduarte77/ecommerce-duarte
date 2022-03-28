@@ -1,0 +1,14 @@
+.card-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    justify-content: space-around;
+}
+
+#titulo{
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
