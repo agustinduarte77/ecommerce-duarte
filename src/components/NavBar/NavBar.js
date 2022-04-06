@@ -1,7 +1,10 @@
 import Button from '@mui/material/Button';
+import {Link} from 'react-router-dom';
 import React from 'react';
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
+
+
 function NavBar() {
     return (
         <div className="App">
@@ -13,11 +16,20 @@ function NavBar() {
                 />
             </div>
             <ul className='navbar'>
-                <li><Button variant='outlined'>Inicio</Button></li>
-                <li><Button variant='outlined'>Deportes</Button></li>
-                <li><Button variant='outlined'>Casual</Button></li>
-                <li><Button variant='outlined'>Formal</Button></li>
-                <li><Button variant='outlined'>Contactanos</Button></li>
+                <li><Button variant='outlined'>
+                    <Link to={'/'}>Inicio</Link>
+                </Button></li>
+                <li><Button variant='outlined'>
+                    <Link to={'/deporte'}>Deportes</Link>
+                </Button></li>
+                
+                <li><Button variant='outlined'>
+                    <Link to={'/casual'}>Casual</Link>
+                </Button></li>
+                
+                <li><Button variant='outlined'>
+                    <Link to={'/contacto'}>Contactanos</Link>
+                </Button></li>
                 <li><Button ><CartWidget /></Button></li>
             </ul>
             </header>

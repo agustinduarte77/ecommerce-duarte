@@ -1,52 +1,34 @@
 import './ItemList.css';
-import Card from '../Card/Item'
+import Card from '../Card/Item';
 import { useState, useEffect } from 'react';
+import mockProductos from '../mockProducts';
+import { useParams } from 'react-router-dom';
+
 
 const ListProducts = () => {
-    const mockProducts = [{
-            id: 1,
-            title:  'Remera',
-            talle:  'XL',
-            price:  4000,
-            stock: 4,
-    },
-    {       
-            id: 2,
-            title:  'Campera',
-            talle:  'L',
-            price:  10000,
-            stock: 6,
-    },
-    {       
-        id: 3,
-        title:  'Pantalon',
-        talle:  '46',
-        price:  8500,
-        stock: 7,
-    },
-    {       
-        id: 4,
-        title:  'Zapatillas',
-        talle:  '43',
-        price:  10000,
-        stock: 4,
-    }]
-
+    const {categoria} = useParams()
     const [products, setProducts] = useState([])
-        
+
     const getProducts = () => {
         return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                (resolve(mockProducts)
-            )}, 2000);              
-        });
-    };
+            return resolve(mockProductos)
+        })
+    }
 
     useEffect(() => {
-        getProducts().then( (data) => {
-            setProducts(data)
+        setProducts([])
+        getProducts().then( (productos) => {
+            categoria ? CategorySearch(productos, categoria) : setProducts(productos)
         })
-    }, [])
+    }, [categoria])
+
+    const CategorySearch = (array, categoria) => {
+        return array.map ( (product) => {
+            if (product.categoria === categoria){
+                return setProducts(products => [...products, product])
+            }
+        })
+    }
 
     return(
         <div className="container-cards">
